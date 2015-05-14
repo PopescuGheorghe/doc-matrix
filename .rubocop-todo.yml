@@ -49,3 +49,6 @@ Style/StringLiterals:
 # Configuration parameters: EnforcedStyle, SupportedStyles.
 Style/TrailingBlankLines:
   Enabled: false
+#line length
+Metrics/LineLength:
+  Max: 200
