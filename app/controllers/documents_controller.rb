@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   # GET /documents.json
   def index
     @user_documents = Document.where(user_id: current_user.id)
-    @documents = Document.all
+    @documents = Document.where.not(user_id: current_user.id)
   end
 
   # GET /documents/1

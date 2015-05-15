@@ -13,6 +13,10 @@
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Dashboard', root_path, class:"navbar-link"%></li>
+          <li><%= link_to 'New Document', new_document_path, class:"navbar-link"%></li>
+        </ul>
         <p class="navbar-text pull-right">
           <% if user_signed_in? %>
           Logged in as <strong><%= current_user.email %></strong>.
