@@ -37,8 +37,8 @@
           <td><%= document.content[0..10] +"..." %></td>
           <td><%= document.user.email %></td>
           <td><%= link_to 'Show', document %></td>
-          <td><%= link_to 'Edit', edit_document_path(document) %></td>
-          <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit', edit_document_path(document) if can? :update, document %></td>
+          <td><%= link_to 'Destroy', document, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, document %></td>
         </tr>
         <% end %>
       </tbody>

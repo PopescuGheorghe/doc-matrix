@@ -1,6 +1,7 @@
 class DocumentsController < ApplicationController
   before_action :set_document, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+  load_and_authorize_resource
   # GET /documents
   # GET /documents.json
   def index
@@ -20,6 +21,7 @@ class DocumentsController < ApplicationController
 
   # GET /documents/1/edit
   def edit
+    @document = Document.find(params[:id])
   end
 
   # POST /documents
