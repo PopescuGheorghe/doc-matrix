@@ -7,6 +7,8 @@ class DocumentsController < ApplicationController
   def index
     @user_documents = Document.where(user_id: current_user.id)
     @documents = Document.where.not(user_id: current_user.id)
+    @documents = @documents.paginate(page: params[:page])
+    @user_documents = @user_documents.paginate(page: params[:page], per_page: 8)
   end
 
   # GET /documents/1
