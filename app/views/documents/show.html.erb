@@ -1,15 +1,19 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @document.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @document.content %>
-</p>
-  <% if can? :update, @document %>
-<%= link_to 'Edit', edit_document_path(@document) %> |
-<%end%> 
-<%= link_to 'Back', documents_path %>
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<p>
+				<strong>Title:</strong>
+				<%= @document.title %>
+			</p>
+			<p>
+				<strong>Content:</strong>
+				<%= @document.content %>
+			</p>
+			<% if can? :update, @document %>
+			<%= link_to 'Edit', edit_document_path(@document), class: "space btn btn-primary" %> 
+			<%end%>
+			<%= link_to 'Back', documents_path, class: "space btn btn-default" %>
+		</div>
+	</div>
+</div>
