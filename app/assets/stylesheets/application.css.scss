@@ -11,10 +11,8 @@
  * file per style scope.
  *
  */
-
+@import "medium-editor/medium-editor";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "custom";
 @import "rangy_text_format";
-@import "medium-editor";
-@import"themes/flat"

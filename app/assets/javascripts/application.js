@@ -15,4 +15,9 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
+//=require contenteditable_input.js
 //= require bootstrap-sprockets
+//= require rangy-core
+//= require rangy-cssclassapplier
+//=require rangy_text_format
+//= require medium-editor
