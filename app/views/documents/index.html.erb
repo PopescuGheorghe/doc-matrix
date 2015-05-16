@@ -13,7 +13,7 @@
         <% @documents.each do |document| %>
         <tr>
           <td><%= document.title %></td>
-          <td><%= document.content[0..10] +"..." %></td>
+          <td><%= (document.content[0..10]+"...").html_safe %></td>
           <td><%= document.user.email %></td>
           <td><%= link_to 'View', document %></td>
         </tr>
@@ -36,7 +36,7 @@
       <% @user_documents.each do |document| %>
       <tr>
         <td><%= document.title %></td>
-        <td><%= document.content[0..10] +"..." %></td>
+        <td><%= (document.content[0..10] +"...").html_safe %></td>
         <td><%= link_to 'View', document %></td>
         <td><%= link_to 'Edit', edit_document_path(document) if can? :update, document %></td>
         <td><%= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, document %></td>
