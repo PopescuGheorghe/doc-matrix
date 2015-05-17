@@ -6,9 +6,14 @@ class DocumentsController < ApplicationController
   # GET /documents.json
   def index
     @user_documents = Document.where(user_id: current_user.id)
-    @documents = Document.where.not(user_id: current_user.id)
-    @documents = @documents.paginate(page: params[:page])
+    @other_documents = Document.where.not(user_id: current_user.id)
+    @other_documents = @other_documents.paginate(page: params[:page])
     @user_documents = @user_documents.paginate(page: params[:page], per_page: 8)
+
+    @search = Document.search do
+      fulltext params[:search]
+    end
+    @result_documents = @search.results
   end
 
   # GET /documents/1
