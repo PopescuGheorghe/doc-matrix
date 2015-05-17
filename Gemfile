@@ -20,7 +20,6 @@ gem 'bootstrap-sass', '~> 3.3.4'
 gem 'will_paginate', '3.0.7'
 gem 'will_paginate-bootstrap'
 #rangy for text selection
-gem 'rangy-rails'
 gem 'simple_form'
 gem 'medium-editor-rails'
 # Use jquery as the JavaScript library

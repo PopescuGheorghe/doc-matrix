@@ -1,7 +1,8 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2">
-			<script>var editor = new MediumEditor('.div-only-class');</script>
+		<div class="editable"></div>
+		<script>var editor = new MediumEditor('.edit');</script>
 			<%= render 'simpleform' %>
 			<%= link_to 'View', @document,  class: "space btn btn-default" %>
 			<%= link_to 'Back', documents_path, class: "space btn btn-default"%>

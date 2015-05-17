@@ -7,7 +7,7 @@
 			</p>
 			<p>
 				<strong>Content:</strong>
-				<%= @document.content %>
+				<%= @document.content.html_safe %>
 			</p>
 			<% if can? :update, @document %>
 			<%= link_to 'Edit', edit_document_path(@document), class: "space btn btn-primary" %> 

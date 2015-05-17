@@ -13,7 +13,7 @@
   <%= f.input :title,class: "form-control" %>
 </div>
 <div class="field">
-  <%=f.input :content, as: :contenteditable, input_html: {class: "shared-class"}, contenteditable_html: {class: "div-only-class"}, html_safe: true%>
+  <%=f.input :content, as: :contenteditable, input_html: {class: "shared-class edit"}, contenteditable_html: {class: "div-only-class"}%>
 </div>
 <div class="actions">
   <%= f.button :submit %>
