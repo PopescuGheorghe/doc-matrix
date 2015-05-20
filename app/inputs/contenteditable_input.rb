@@ -1,5 +1,5 @@
 class ContenteditableInput < SimpleForm::Inputs::Base
-  def input(wrapper_options)
+  def input(_wrapper_options)
     # Determine field value (either from input_html or object value or empty string)
     value = input_html_options[:value] || object.send(attribute_name) || ''
     # If the html_safe option is present and true, prevent escaping HTML tags
@@ -10,7 +10,7 @@ class ContenteditableInput < SimpleForm::Inputs::Base
     end.merge(contenteditable: true)
     # Render the contenteditable div & the hidden input as siblings
     [
-      @builder.template.content_tag(:div, value, contenteditable_html),
+      @builder.template.content_tag(:div, raw(value), contenteditable_html),
       @builder.hidden_field(attribute_name, input_html_options)
     ].join.html_safe
   end

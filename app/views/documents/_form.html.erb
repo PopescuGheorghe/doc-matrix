@@ -13,9 +13,10 @@
   <%= f.input :title,class: "form-control" %>
 </div>
 <div class="field">
-  <%=f.input :content%>
+  <%= f.label :content %><br>
+  <%= f.text_area :content, class: "form-control", rows: "20"%>
 </div>
 <div class="actions">
-  <%= f.button :submit %>
+  <%= f.button :submit, class: "btn btn-primary" %>
 </div>
 <% end %>
