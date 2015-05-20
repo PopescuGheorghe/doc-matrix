@@ -17,3 +17,5 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require clear
+//= require highlight
+//= require search_highlight
