@@ -7,11 +7,11 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		<%= render 'layouts/header' %>
+		<%= render(:partial => 'layouts/header') unless  (params[:action] == 'index') %>
+		<%= render(:partial => 'layouts/index_header') if (params[:action] == 'index') %>
 		<%= flash_messages %>
 		<%= yield %>
 		<%= render 'layouts/footer' %>
-		
 	</div>
 </body>
 </html>
