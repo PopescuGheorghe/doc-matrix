@@ -17,4 +17,10 @@
 //= require jquery
 //=require contenteditable_input
 //= require bootstrap-sprockets
+<<<<<<< HEAD
 //= require medium-editor
+=======
+//= require clear
+//= require highlight
+//= require search_highlight
+>>>>>>> 53ced4e89d2d6d5f32b5eeb0ced9a03da6abd167

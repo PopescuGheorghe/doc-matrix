@@ -1,5 +1,6 @@
 <div class="container-fluid">
   <div class="row">
+    
     <div class="col-sm-6 col-md-6"><table class="table">
       <thead>
         <tr>
@@ -8,22 +9,28 @@
           <th>Owner</th>
         </tr>
       </thead>
-      <h3 class="center">All Documents</h3>
-      <tbody>
-        <% @documents.each do |document| %>
-        <tr>
-          <td><%= document.title %></td>
-          <td><%= document.content[0..10] +"..." %></td>
-          <td><%= document.user.email %></td>
-          <td><%= link_to 'View', document %></td>
-        </tr>
+       <h3 class="center">All Documents</h3>
+        <tbody>
+          <% if @document_results.present? %>
+          <% @document_results.each do |document| %>
+          <tr>
+            <td><%= document.title %></td>
+            <td><%= document.content[0..10] +"..." %></td>
+            <td><%= document.user.email %></td>
+            <td><%= link_to 'View', document %></td>
+          </tr>
+          <% end %>
+        </tbody>
+        
+        <% else %>
+        <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
         <% end %>
-      </tbody>
-    </table>
-    <div class="col-sm-offset-3 col-md-offset-3">
-      <%= will_paginate @documents %>
+        
+      </table>
+      <div class="col-sm-offset-3 col-md-offset-3">
+        <%= will_paginate @document_results %>
+      </div>
     </div>
-  </div>
   <div class="col-sm-5 col-md-5 col-xs-offset-1"><table class="table">
     <thead>
       <tr>
