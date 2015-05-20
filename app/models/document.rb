@@ -10,4 +10,15 @@ class Document < ActiveRecord::Base
   def self.search(search)
     where("content LIKE ?", "%#{search}%")
   end
+
+  #return the occurences of a word
+  def self.countOccurences(key)
+    result = Hash.new(0)
+    Document.all.find_each do |document|
+      document.content.split.each do |word|
+        result[word] += 1 if word == key
+      end
+    end
+    result[key]
+  end
 end

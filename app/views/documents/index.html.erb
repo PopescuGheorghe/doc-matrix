@@ -12,12 +12,16 @@
       <h3 class="center">All Documents</h3>
       <tbody>
         <% if @document_results.present? %>
+        <% if params[:search] != nil%>
+        <p class="result"> Found <%= @occurences %> occurences of "<i><%= params[:search] %></i>" </p>
+        <%end%>
         <% @document_results.each do |document| %>
+        
         <tr>
           <td><%= document.title %></td>
           <td><%= (document.content[0..10] +"...").html_safe %></td>
           <td><%= document.user.email %></td>
-          <td><%= link_to 'View', document %></td>
+          <td><%= link_to 'View ', document %></td>
         </tr>
         <% end %>
       </tbody>
