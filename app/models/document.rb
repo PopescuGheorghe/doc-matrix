@@ -13,23 +13,20 @@ class Document < ActiveRecord::Base
     where("content LIKE ?", "%#{search}%")
   end
 
-  def remove_html_tags
-    re = /<("[^"]*"|'[^']*'|[^'">])*>/
-    self.title.gsub!(re, '')
-    self.description.gsub!(re, '')
-  end
-
   #return the occurences of a word
   def self.count_occurences(key)
     re = /<("[^"]*"|'[^']*'|[^'">])*>/
     result = Hash.new(0)
+    @tmp = ''
     Document.all.find_each do |document|
       document.content.split.each do |word|
-        word = word.downcase
-        word = word.gsub(re,'')
-        result[word] += 1 if word == key.downcase
+        word = word.gsub(re, '')
+        if word.downcase == key.downcase
+          result[word] += 1
+          @tmp = word
+        end
       end
     end
-    result[key]
+    result[@tmp]
   end
 end
