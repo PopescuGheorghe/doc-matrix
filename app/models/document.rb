@@ -16,7 +16,8 @@ class Document < ActiveRecord::Base
     result = Hash.new(0)
     Document.all.find_each do |document|
       document.content.split.each do |word|
-        result[word] += 1 if word == key
+        word = word.downcase
+        result[word] += 1 if word == key.downcase
       end
     end
     result[key]
