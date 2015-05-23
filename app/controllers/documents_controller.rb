@@ -12,7 +12,7 @@ class DocumentsController < ApplicationController
     if params[:search]
       @document_results = Document.search(params[:search])
       @document_results = @document_results.paginate(page: params[:page], per_page: 8)
-      @occurences = Document.countOccurences(params[:search])
+      @occurences = Document.count_occurences(params[:search])
     else
       @document_results = Document.all
       @document_results = @document_results.paginate(page: params[:page], per_page: 8)

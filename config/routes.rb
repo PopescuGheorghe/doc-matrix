@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users
+  resources :documents do
+    resources :versions, only: [:destroy] do
+      member do
+        get :diff, to: 'versions#diff'
+        patch :rollback, to: 'versions#rollback'
+      end
+    end
+  end
   resources :documents
 
   # The priority is based upon order of creation: first created -> highest priority.

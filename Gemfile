@@ -22,6 +22,9 @@ gem 'will_paginate-bootstrap'
 #rangy for text selection
 gem 'simple_form'
 gem 'medium-editor-rails'
+#history
+gem 'paper_trail'
+gem 'diffy'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

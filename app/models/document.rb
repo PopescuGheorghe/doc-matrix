@@ -1,6 +1,8 @@
 class Document < ActiveRecord::Base
   belongs_to :user
 
+  has_paper_trail
+
   # ensure that a user_id is present
   validates :user_id, presence: true
   # ensure that title is present and at least 2 chars long
@@ -11,12 +13,20 @@ class Document < ActiveRecord::Base
     where("content LIKE ?", "%#{search}%")
   end
 
+  def remove_html_tags
+    re = /<("[^"]*"|'[^']*'|[^'">])*>/
+    self.title.gsub!(re, '')
+    self.description.gsub!(re, '')
+  end
+
   #return the occurences of a word
-  def self.countOccurences(key)
+  def self.count_occurences(key)
+    re = /<("[^"]*"|'[^']*'|[^'">])*>/
     result = Hash.new(0)
     Document.all.find_each do |document|
       document.content.split.each do |word|
         word = word.downcase
+        word = word.gsub(re,'')
         result[word] += 1 if word == key.downcase
       end
     end
