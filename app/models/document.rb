@@ -1,7 +1,7 @@
 class Document < ActiveRecord::Base
   belongs_to :user
 
-  has_paper_trail on: [:update, :destroy]
+  has_paper_trail
 
   # ensure that a user_id is present
   validates :user_id, presence: true
