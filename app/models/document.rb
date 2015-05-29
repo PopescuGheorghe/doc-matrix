@@ -9,11 +9,15 @@ class Document < ActiveRecord::Base
   validates :title, length: { minimum: 2 }, presence: true
   # ensure that content is present and at between 10 and 10000 chars long
   validates :content, length: { minimum: 10, maximum: 10_000 }, presence: true
+
+  #return the searched word
   def self.search(search)
     where("content LIKE ?", "%#{search}%")
   end
 
   #return the occurences of a word
+  #it's case insensitive
+  #doesn't return the edited words like blod,italic
   def self.count_occurences(key)
     re = /<("[^"]*"|'[^']*'|[^'">])*>/
     result = Hash.new(0)

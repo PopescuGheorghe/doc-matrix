@@ -1,0 +1,12 @@
+Fri, 29 May 2015 12:50:47 +0300
+README.rdoc	Fri, 15 May 2015 01:13:59 +0300
+app/controllers/application_controller.rb	Wed, 20 May 2015 14:18:33 +0300
+app/controllers/documents_controller.rb	Fri, 29 May 2015 12:30:18 +0300
+app/controllers/versions_controller.rb	Fri, 29 May 2015 12:50:41 +0300
+app/helpers/application_helper.rb	Fri, 15 May 2015 18:54:29 +0300
+app/helpers/devise_helper.rb	Fri, 15 May 2015 18:54:29 +0300
+app/helpers/documents_helper.rb	Sat, 23 May 2015 13:55:28 +0300
+app/inputs/contenteditable_input.rb	Fri, 29 May 2015 12:49:28 +0300
+app/models/ability.rb	Sun, 17 May 2015 12:24:53 +0300
+app/models/document.rb	Fri, 29 May 2015 12:47:28 +0300
+app/models/user.rb	Sat, 16 May 2015 00:35:49 +0300

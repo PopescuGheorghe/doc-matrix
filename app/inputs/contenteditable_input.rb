@@ -1,4 +1,5 @@
 class ContenteditableInput < SimpleForm::Inputs::Base
+  #use content editable as form input
   def input(_wrapper_options)
     # Determine field value (either from input_html or object value or empty string)
     value = input_html_options[:value] || object.send(attribute_name) || ''
