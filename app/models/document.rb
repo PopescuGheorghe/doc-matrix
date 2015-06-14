@@ -7,10 +7,10 @@ class Document < ActiveRecord::Base
   validates :user_id, presence: true
   # ensure that title is present
   validates :title, presence: true
-  # ensure that content is present and at between 10 and 10000 chars long
+  # ensure that content is present
   validates :content, presence: true
 
-  #return the searched word
+  #return the documents wich contain the searched word
   def self.search(search)
     where("content LIKE ?", "%#{search}%")
   end

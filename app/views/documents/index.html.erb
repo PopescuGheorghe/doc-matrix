@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    
+
     <div class="col-sm-6 col-md-6"><table class="table">
       <thead>
         <tr>
@@ -16,7 +16,7 @@
         <p class="result"> Found <%= @occurences %> occurences of "<i><%= params[:search] %></i>" </p>
         <%end%>
         <% @document_results.each do |document| %>
-        
+
         <tr>
           <td><%= document.title %></td>
           <td><%= (document.content[0..10] +"...").html_safe %></td>
