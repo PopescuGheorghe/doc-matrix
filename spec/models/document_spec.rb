@@ -13,15 +13,15 @@ RSpec.describe Document, type: :model do
   describe 'search by word' do
     before :each do
       @doc1 = create(:document,
-        title: 'First Document',
-        content: 'Lorem ipsum dolor dolorem LORem <b>Lorem</b>')
+                     title: 'First Document',
+                     content: 'Lorem ipsum dolor dolorem LORem <b>Lorem</b>')
       @doc2 = create(:document,
-        title: 'Second Document',
-        content: 'ipsum dolor dolorem')
+                     title: 'Second Document',
+                     content: 'ipsum dolor dolorem')
       @doc3 = create(:document,
-        title: 'Third Document',
-        content: 'sit amet dolor',
-        user_id: '2')
+                     title: 'Third Document',
+                     content: 'sit amet dolor',
+                     user_id: '2')
     end
 
     context 'matching documents' do

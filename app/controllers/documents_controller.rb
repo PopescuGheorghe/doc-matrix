@@ -5,8 +5,8 @@ class DocumentsController < ApplicationController
   # GET /documents
   # GET /documents.json
   def index
-    @document_results = Document.all
-    @document_results = @document_results.paginate(page: params[:page], per_page: 8)
+    @other_documents = Document.where.not(user_id: current_user.id)
+    @other_documents = @other_documents.paginate(page: params[:page], per_page: 8)
     @user_documents = Document.where(user_id: current_user.id)
     @user_documents = @user_documents.paginate(page: params[:page], per_page: 8)
     if params[:search]
@@ -14,7 +14,7 @@ class DocumentsController < ApplicationController
       @document_results = @document_results.paginate(page: params[:page], per_page: 8)
       @occurences = Document.count_occurences(params[:search])
     else
-      @document_results = Document.all
+      @document_results = Document.where.not(user_id: current_user.id)
       @document_results = @document_results.paginate(page: params[:page], per_page: 8)
     end
   end

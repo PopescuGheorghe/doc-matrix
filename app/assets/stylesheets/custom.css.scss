@@ -12,6 +12,7 @@
 
 body {
   padding-top: 0px;
+  margin-bottom: 60px;
 }
 
 section {
@@ -150,10 +151,16 @@ input {
 /* footer */
 
 footer {
-  margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
+  position:fixed;
+  height:30px;
+  background-color:#fff;
+  bottom:0px;
+  left:0px;
+  right:0px;
+  margin-bottom:0px;
 }
 
 footer a {
