@@ -15,22 +15,17 @@ class Document < ActiveRecord::Base
     where("content LIKE ?", "%#{search}%")
   end
 
-  #return the occurences of a word
+  #return the occurences of a word in all document
   #it's case insensitive
-  #doesn't return the edited words like blod,italic
   def self.count_occurences(key)
     re = /<("[^"]*"|'[^']*'|[^'">])*>/
     result = Hash.new(0)
-    @tmp = ''
     Document.all.find_each do |document|
       document.content.split.each do |word|
         word = word.gsub(re, '')
-        if word.downcase == key.downcase
-          result[word] += 1
-          @tmp = word
-        end
+        result[key] += 1 if word.downcase == key.downcase
       end
     end
-    result[@tmp]
+    result[key]
   end
 end

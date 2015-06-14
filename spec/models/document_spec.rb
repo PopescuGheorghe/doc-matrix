@@ -14,7 +14,7 @@ RSpec.describe Document, type: :model do
     before :each do
       @doc1 = Document.create(
         title: 'First Document',
-        content: 'Lorem ipsum dolor',
+        content: 'Lorem ipsum dolor dolorem LORem <b>Lorem</b>',
         user_id: '1')
       @doc2 = Document.create(
         title: 'Second Document',
@@ -34,6 +34,11 @@ RSpec.describe Document, type: :model do
     context 'non-matching documents' do
       it 'omits results that do not match' do
         expect(Document.search("Lorem")).not_to include @doc3
+      end
+    end
+    context 'count word occurences' do
+      it 'returns number of occurences of searched word' do
+        expect(Document.count_occurences("Lorem")).to eq 3
       end
     end
   end
