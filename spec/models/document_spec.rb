@@ -12,15 +12,13 @@ RSpec.describe Document, type: :model do
   end
   describe 'search by word' do
     before :each do
-      @doc1 = Document.create(
+      @doc1 = create(:document,
         title: 'First Document',
-        content: 'Lorem ipsum dolor dolorem LORem <b>Lorem</b>',
-        user_id: '1')
-      @doc2 = Document.create(
+        content: 'Lorem ipsum dolor dolorem LORem <b>Lorem</b>')
+      @doc2 = create(:document,
         title: 'Second Document',
-        content: 'ipsum dolor dolorem',
-        user_id: '1')
-      @doc3 = Document.create(
+        content: 'ipsum dolor dolorem')
+      @doc3 = create(:document,
         title: 'Third Document',
         content: 'sit amet dolor',
         user_id: '2')
@@ -41,5 +39,11 @@ RSpec.describe Document, type: :model do
         expect(Document.count_occurences("Lorem")).to eq 3
       end
     end
+  end
+  it 'is invalid with duplicate title' do
+    document = create(:document)
+    document = build(:document)
+    document.valid?
+    expect(document.errors[:title]).to include("has already been taken")
   end
 end

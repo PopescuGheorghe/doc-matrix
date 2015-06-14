@@ -5,8 +5,8 @@ class Document < ActiveRecord::Base
 
   # ensure that a user_id is present
   validates :user_id, presence: true
-  # ensure that title is present
-  validates :title, presence: true
+  # ensure that title is present and unique
+  validates :title, presence: true, uniqueness: true
   # ensure that content is present
   validates :content, presence: true
 
