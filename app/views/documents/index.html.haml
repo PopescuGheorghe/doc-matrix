@@ -12,12 +12,14 @@
           %table.table
             %thead
               %tr
+                %th
                 %th Title
                 %th Owner
             %h3.center Other Documents
             %tbody
               - @other_documents.each do |document|
                 %tr
+                  %td= image_tag  "document.png", width: '32'
                   %td= document.title
                   %td= document.user.email
                   %td= link_to 'View ', document
@@ -27,11 +29,13 @@
           %table.table
             %thead
               %tr
+                %th
                 %th Title
             %h3.center My Documents
             %tbody
               - @user_documents.each do |document|
                 %tr
+                  %td= image_tag  "document.png", width: '32'
                   %td= document.title
                   %td= link_to 'View', document
                   %td= link_to 'Edit', edit_document_path(document) if can? :update, document
