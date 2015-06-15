@@ -1,4 +1,6 @@
+#DocumentsHelper
 module DocumentsHelper
+  #compares old content with actual content of a document
   def diff(content1, content2)
     changes = Diffy::Diff.new(content1, content2,
                               include_plus_and_minus_in_html: true,

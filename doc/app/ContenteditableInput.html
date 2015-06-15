@@ -85,6 +85,8 @@
 
   <section class="description">
     
+<p><a href="ContenteditableInput.html">ContenteditableInput</a></p>
+
   </section>
 
   
@@ -119,13 +121,13 @@
 
         <div class="method-description">
           
-          <p>use content editable as form input</p>
+          <p>use content editable as form input to replace standard input</p>
           
           
 
           
           <div class="method-source-code" id="input-source">
-            <pre><span class="ruby-comment"># File app/inputs/contenteditable_input.rb, line 3</span>
+            <pre><span class="ruby-comment"># File app/inputs/contenteditable_input.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">input</span>(<span class="ruby-identifier">_wrapper_options</span>)
   <span class="ruby-comment"># Determine field value (either from input_html or object value or empty string)</span>
   <span class="ruby-identifier">value</span> = <span class="ruby-identifier">input_html_options</span>[<span class="ruby-value">:value</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">object</span>.<span class="ruby-identifier">send</span>(<span class="ruby-identifier">attribute_name</span>) <span class="ruby-operator">||</span> <span class="ruby-string">&#39;&#39;</span>

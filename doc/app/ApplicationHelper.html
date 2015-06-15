@@ -80,6 +80,8 @@
 
   <section class="description">
     
+<p><a href="ApplicationHelper.html">ApplicationHelper</a></p>
+
   </section>
 
   
@@ -114,13 +116,13 @@
 
         <div class="method-description">
           
-          
+          <p>boostrap style messages</p>
           
           
 
           
           <div class="method-source-code" id="bootstrap_class_for-source">
-            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 2</span>
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 4</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">bootstrap_class_for</span>(<span class="ruby-identifier">flash_type</span>)
   { <span class="ruby-identifier">success</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;alert-success&quot;</span>, <span class="ruby-identifier">error</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;alert-danger&quot;</span>, <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;alert-warning&quot;</span>, <span class="ruby-identifier">notice</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;alert-info&quot;</span> }[<span class="ruby-identifier">flash_type</span>] <span class="ruby-operator">||</span> <span class="ruby-identifier">flash_type</span>.<span class="ruby-identifier">to_s</span>
 <span class="ruby-keyword">end</span></pre>
@@ -147,13 +149,13 @@
 
         <div class="method-description">
           
-          
+          <p>renders falsh messages</p>
           
           
 
           
           <div class="method-source-code" id="flash_messages-source">
-            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 6</span>
+            <pre><span class="ruby-comment"># File app/helpers/application_helper.rb, line 9</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">flash_messages</span>(<span class="ruby-identifier">_opts</span> = {})
   <span class="ruby-identifier">flash</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">msg_type</span>, <span class="ruby-identifier">message</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">concat</span>(<span class="ruby-identifier">content_tag</span>(<span class="ruby-value">:div</span>, <span class="ruby-identifier">message</span>, <span class="ruby-identifier">class</span><span class="ruby-operator">:</span> <span class="ruby-node">&quot;alert #{bootstrap_class_for(msg_type)} fade in&quot;</span>) <span class="ruby-keyword">do</span>

@@ -87,6 +87,8 @@
 
   <section class="description">
     
+<p><a href="Document.html">Document</a></p>
+
   </section>
 
   
@@ -121,8 +123,7 @@
 
         <div class="method-description">
           
-          <p>return the occurences of a word it&#39;s case insensitive doesn&#39;t
-return the edited words like blod,italic</p>
+          <p>return the occurences of a word in all documents it&#39;s case insensitive</p>
           
           
 
@@ -132,17 +133,13 @@ return the edited words like blod,italic</p>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">count_occurences</span>(<span class="ruby-identifier">key</span>)
   <span class="ruby-identifier">re</span> = <span class="ruby-regexp">/&lt;(&quot;[^&quot;]*&quot;|&#39;[^&#39;]*&#39;|[^&#39;&quot;&gt;])*&gt;/</span>
   <span class="ruby-identifier">result</span> = <span class="ruby-constant">Hash</span>.<span class="ruby-identifier">new</span>(<span class="ruby-value">0</span>)
-  <span class="ruby-ivar">@tmp</span> = <span class="ruby-string">&#39;&#39;</span>
   <span class="ruby-constant">Document</span>.<span class="ruby-identifier">all</span>.<span class="ruby-identifier">find_each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">document</span><span class="ruby-operator">|</span>
     <span class="ruby-identifier">document</span>.<span class="ruby-identifier">content</span>.<span class="ruby-identifier">split</span>.<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">word</span><span class="ruby-operator">|</span>
       <span class="ruby-identifier">word</span> = <span class="ruby-identifier">word</span>.<span class="ruby-identifier">gsub</span>(<span class="ruby-identifier">re</span>, <span class="ruby-string">&#39;&#39;</span>)
-      <span class="ruby-keyword">if</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>
-        <span class="ruby-identifier">result</span>[<span class="ruby-identifier">word</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-        <span class="ruby-ivar">@tmp</span> = <span class="ruby-identifier">word</span>
-      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">+=</span> <span class="ruby-value">1</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">word</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">key</span>.<span class="ruby-identifier">downcase</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
-  <span class="ruby-identifier">result</span>[<span class="ruby-ivar">@tmp</span>]
+  <span class="ruby-identifier">result</span>[<span class="ruby-identifier">key</span>]
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -167,13 +164,13 @@ return the edited words like blod,italic</p>
 
         <div class="method-description">
           
-          <p>return the searched word</p>
+          <p>return the documents wich contain the searched word</p>
           
           
 
           
           <div class="method-source-code" id="search-source">
-            <pre><span class="ruby-comment"># File app/models/document.rb, line 14</span>
+            <pre><span class="ruby-comment"># File app/models/document.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-keyword">self</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">search</span>)
   <span class="ruby-identifier">where</span>(<span class="ruby-string">&quot;content LIKE ?&quot;</span>, <span class="ruby-node">&quot;%#{search}%&quot;</span>)
 <span class="ruby-keyword">end</span></pre>

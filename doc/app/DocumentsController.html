@@ -97,6 +97,8 @@
 
   <section class="description">
     
+<p><a href="DocumentsController.html">DocumentsController</a></p>
+
   </section>
 
   
@@ -250,19 +252,19 @@
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/documents_controller.rb, line 7</span>
+            <pre><span class="ruby-comment"># File app/controllers/documents_controller.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
-  <span class="ruby-ivar">@document_results</span> = <span class="ruby-constant">Document</span>.<span class="ruby-identifier">all</span>
-  <span class="ruby-ivar">@document_results</span> = <span class="ruby-ivar">@document_results</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>)
+  <span class="ruby-ivar">@other_documents</span> = <span class="ruby-constant">Document</span>.<span class="ruby-identifier">where</span>.<span class="ruby-identifier">not</span>(<span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+  <span class="ruby-ivar">@other_documents</span> = <span class="ruby-ivar">@other_documents</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">7</span>)
   <span class="ruby-ivar">@user_documents</span> = <span class="ruby-constant">Document</span>.<span class="ruby-identifier">where</span>(<span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
-  <span class="ruby-ivar">@user_documents</span> = <span class="ruby-ivar">@user_documents</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>)
+  <span class="ruby-ivar">@user_documents</span> = <span class="ruby-ivar">@user_documents</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">7</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>]
     <span class="ruby-ivar">@document_results</span> = <span class="ruby-constant">Document</span>.<span class="ruby-identifier">search</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>])
-    <span class="ruby-ivar">@document_results</span> = <span class="ruby-ivar">@document_results</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>)
+    <span class="ruby-ivar">@document_results</span> = <span class="ruby-ivar">@document_results</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">7</span>)
     <span class="ruby-ivar">@occurences</span> = <span class="ruby-constant">Document</span>.<span class="ruby-identifier">count_occurences</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:search</span>])
   <span class="ruby-keyword">else</span>
-    <span class="ruby-ivar">@document_results</span> = <span class="ruby-constant">Document</span>.<span class="ruby-identifier">all</span>
-    <span class="ruby-ivar">@document_results</span> = <span class="ruby-ivar">@document_results</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>)
+    <span class="ruby-ivar">@document_results</span> = <span class="ruby-constant">Document</span>.<span class="ruby-identifier">where</span>.<span class="ruby-identifier">not</span>(<span class="ruby-identifier">user_id</span><span class="ruby-operator">:</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">id</span>)
+    <span class="ruby-ivar">@document_results</span> = <span class="ruby-ivar">@document_results</span>.<span class="ruby-identifier">paginate</span>(<span class="ruby-identifier">page</span><span class="ruby-operator">:</span> <span class="ruby-identifier">params</span>[<span class="ruby-value">:page</span>], <span class="ruby-identifier">per_page</span><span class="ruby-operator">:</span> <span class="ruby-value">7</span>)
   <span class="ruby-keyword">end</span>
 <span class="ruby-keyword">end</span></pre>
           </div>

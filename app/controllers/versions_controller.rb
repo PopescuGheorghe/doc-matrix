@@ -1,7 +1,8 @@
+#VersionsController
 class VersionsController < ApplicationController
   before_action :set_document_and_version, only: [:diff, :rollback, :destroy]
 
-  #show the modifications of a documents
+  #show the modifications of a document
   def diff
   end
 

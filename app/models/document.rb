@@ -1,3 +1,4 @@
+#Document
 class Document < ActiveRecord::Base
   belongs_to :user
 
@@ -15,7 +16,7 @@ class Document < ActiveRecord::Base
     where("content LIKE ?", "%#{search}%")
   end
 
-  #return the occurences of a word in all document
+  #return the occurences of a word in all documents
   #it's case insensitive
   def self.count_occurences(key)
     re = /<("[^"]*"|'[^']*'|[^'">])*>/

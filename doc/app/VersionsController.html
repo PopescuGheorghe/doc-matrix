@@ -87,6 +87,8 @@
 
   <section class="description">
     
+<p><a href="VersionsController.html">VersionsController</a></p>
+
   </section>
 
   
@@ -121,13 +123,13 @@
 
         <div class="method-description">
           
-          <p>show the modifications of a documents</p>
+          <p>show the modifications of a document</p>
           
           
 
           
           <div class="method-source-code" id="diff-source">
-            <pre><span class="ruby-comment"># File app/controllers/versions_controller.rb, line 5</span>
+            <pre><span class="ruby-comment"># File app/controllers/versions_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">diff</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
@@ -160,7 +162,7 @@ object of this version</p>
 
           
           <div class="method-source-code" id="rollback-source">
-            <pre><span class="ruby-comment"># File app/controllers/versions_controller.rb, line 10</span>
+            <pre><span class="ruby-comment"># File app/controllers/versions_controller.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">rollback</span>
   <span class="ruby-identifier">document</span> = <span class="ruby-ivar">@version</span>.<span class="ruby-identifier">reify</span>
   <span class="ruby-identifier">document</span>.<span class="ruby-identifier">save</span>
