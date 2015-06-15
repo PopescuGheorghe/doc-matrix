@@ -1,0 +1,8 @@
+.container-fluid
+  .row
+    .col-md-8.col-md-offset-2
+      %h3.center New Document
+      :javascript
+        var editor = new MediumEditor('.edit');
+      = render 'simpleform'
+      = link_to 'Back', documents_path, class: "space btn btn-default"

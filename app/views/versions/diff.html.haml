@@ -1,0 +1,18 @@
+.container-fluid
+  .row
+    .col-md-8.col-md-offset-2
+      .row.mt
+        .col-sm-12
+          %h2= "Diff between Version #{@version.id} and Current Version"
+          :css
+            #{Diffy::CSS}
+          .well.diff
+            %p
+              %strong Title:
+              = diff(@version.reify.title, @document.title)
+            %p
+              %strong Content:
+              = diff(@version.reify.content, @document.content)
+      .fr
+        = link_to 'Back', edit_document_path(@document), class: 'btn btn-default'
+        = link_to 'Undo', rollback_document_version_path(@document, @version), class: 'btn btn-primary', method: 'PATCH'
