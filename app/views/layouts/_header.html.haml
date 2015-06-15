@@ -15,11 +15,10 @@
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li= link_to 'Dashboard', root_path, class:"navbar-link"
-            %li= link_to 'New Document', new_document_path, class:"navbar-link"
-          %p.navbar-text.pull-right
+            %li.active= link_to 'New Document', new_document_path, class:"navbar-link"
+          %p.navbar-user.pull-right
             - if user_signed_in?
-              Logged in as
-              = succeed "." do
+              = succeed " - " do
                 %strong= current_user.email
               = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
               |

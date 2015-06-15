@@ -14,7 +14,7 @@
         / Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li= link_to 'Dashboard', root_path, class:"navbar-link"
+            %li.active= link_to 'Dashboard', root_path, class:"navbar-link"
             %li= link_to 'New Document', new_document_path, class:"navbar-link"
             %li
               = form_tag documents_path, :method => :get, :class => "navbar-form" do
@@ -23,9 +23,9 @@
                   = submit_tag "Search", :name => nil, class: "btn btn-primary search-button"
             %li.clear-margin
               = link_to "Clear"
-          %p.navbar-text.pull-right
+          %p.navbar-user.pull-right
             - if user_signed_in?
-              = succeed "." do
+              = succeed " - " do
                 %strong= current_user.email
               = link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link'
               |
