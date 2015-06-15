@@ -1,3 +1,3 @@
-### DOCit - A basic Document Management System
+### ManiDOC - A basic Document Management System
 
 
