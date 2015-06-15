@@ -44,8 +44,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.0.0'
+  gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec'
   gem 'factory_girl_rails'
+  gem 'faker', '~> 1.4.3'
   gem 'capybara'
   gem 'database_cleaner'
   gem 'pry-byebug'
