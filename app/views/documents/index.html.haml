@@ -8,41 +8,34 @@
           "
         = render :partial => 'search_results'
       - else
-        .col-xs-offset-1.col-sm-4.col-md-4
-          %table.table
-            %thead
-              %tr
-                %th
-                %th Title
-                %th Owner
-            %h3.center Other Documents
-            %tbody
-              - @other_documents.each do |document|
-                %tr
-                  %td= image_tag  "document.png", width: '32'
-                  %td= document.title
-                  %td= document.user.email
-                  %td= link_to 'View ', document
-          .col-sm-offset-3.col-md-offset-3
-            = will_paginate @document_results
-        .col-sm-5.col-md-5.col-xs-offset-1
-          %table.table
-            %thead
-              %tr
-                %th
-                %th Title
-            %h3.center My Documents
-            %tbody
-              - @user_documents.each do |document|
-                %tr
-                  %td= image_tag  "document.png", width: '32'
-                  %td= document.title
-                  %td= link_to 'View', document
-                  %td= link_to 'Edit', edit_document_path(document) if can? :update, document
-                  %td= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' } if can? :destroy, document
+        .col-sm-6.col-md-6
+          .panel.panel-default
+            .panel-heading.center Other Documents
+            %table.table
+              %tbody
+                - @other_documents.each do |document|
+                  %tr
+                    %td= image_tag  "document.png", width: '32'
+                    %td= document.title
+                    %td= document.user.email
+                    %td= link_to 'View ', document, class: :"btn btn-sm btn-default"
+            .col-sm-offset-3.col-md-offset-3
+              = will_paginate @document_results
+        .col-sm-6.col-md-6
+          .panel.panel-default
+            .panel-heading.center My Documents
+            %table.table
+              %tbody
+                - @user_documents.each do |document|
+                  %tr
+                    %td= image_tag  "document.png", width: '32'
+                    %td= document.title
+                    %td= link_to 'View', document, class: :"btn btn-sm btn-default"
+                    %td= link_to 'Edit',edit_document_path(document), class: :"btn btn-sm btn-default" if can? :update, document
+                    %td= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' }, class: :"btn btn-sm btn-danger" if can? :destroy, document
 
-          .col-sm-offset-3.col-md-offset-3
-            = will_paginate @user_documents
+            .col-sm-offset-3.col-md-offset-3.col-xs-offset-3
+              = will_paginate @user_documents
     - else
       %p.result
         There are no documents containing the term(s) #{params[:search]}.
