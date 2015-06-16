@@ -20,7 +20,7 @@
                     %td= document.user.email
                     %td= link_to 'View ', document, class: :"btn btn-sm btn-default"
             .col-sm-offset-3.col-md-offset-3
-              = will_paginate @document_results
+              = will_paginate @other_documents, param_name: :others_page
         .col-sm-6.col-md-6
           .panel.panel-default
             .panel-heading.center My Documents
@@ -35,7 +35,7 @@
                     %td= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' }, class: :"btn btn-sm btn-danger" if can? :destroy, document
 
             .col-sm-offset-3.col-md-offset-3.col-xs-offset-3
-              = will_paginate @user_documents
+              = will_paginate @user_documents, param_name: :user_page
     - else
       %p.result
         There are no documents containing the term(s) #{params[:search]}.
