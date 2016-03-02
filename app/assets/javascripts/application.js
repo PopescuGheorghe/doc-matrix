@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 //= require jquery
-//=require contenteditable_input
+//= require contenteditable_input
 //= require bootstrap-sprockets
 //= require medium-editor
 //= require clear

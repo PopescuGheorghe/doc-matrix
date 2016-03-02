@@ -47,6 +47,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'simplecov', :require => false
   gem 'rspec-rails', '~> 3.1.0'
   gem 'rspec'
   gem 'factory_girl_rails'

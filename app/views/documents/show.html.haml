@@ -8,7 +8,7 @@
       %p
         %strong Title:
         = @document.title
-      %p#document_content
+      %div#document_content
         %strong Content:
         = @document.content.html_safe
       - if can? :update, @document
