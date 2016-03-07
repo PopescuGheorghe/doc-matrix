@@ -1,15 +1,13 @@
-= simple_form_for @document do |f|
-  - if @document.errors.any?
-    #error_explanation
-      %h2
-        = pluralize(@document.errors.count, "error")
-        prohibited this document from being saved:
-      %ul
-        - @document.errors.full_messages.each do |message|
-          %li= message
-  .field
-    = f.input :title,class: "form-control"
-  .field
-    = f.input :content, as: :contenteditable, input_html: {class: "shared-class edit"}, contenteditable_html: {class: "div-only-class"}
-  .actions
-    = f.button :submit, class: "btn btn-primary"
+.modal-dialog
+  .modal-content
+    = simple_form_for @document, remote: true do |f|
+      .modal-body
+        %ul.errors
+        .field
+          = f.input :title,class: "form-control"
+        .field
+          = f.input :content, as: :contenteditable, input_html: {class: "shared-class edit"}, contenteditable_html: {class: "div-only-class"}
+      .modal-footer
+        .actions
+          = f.button :submit, class: "btn btn-primary"
+          = link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"}

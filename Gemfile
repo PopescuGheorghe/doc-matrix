@@ -18,7 +18,8 @@ gem 'cancancan', '~> 1.9'
 #devise
 gem 'devise'
 #bootstrap
-gem 'bootstrap-sass', '~> 3.3.4'
+gem 'bootstrap-sass', '~> 3.3.5.1'
+gem 'bootstrap-modal-rails'
 #pagination
 gem 'will_paginate', '3.0.7'
 gem 'will_paginate-bootstrap'
@@ -47,7 +48,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
   gem 'rspec-rails', '~> 3.1.0'
   gem 'rspec'
   gem 'factory_girl_rails'

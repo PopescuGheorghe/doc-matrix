@@ -39,15 +39,7 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(document_params)
     @document.user_id = current_user.id
-    respond_to do |format|
-      if @document.save
-        format.html { redirect_to @document, notice: 'Document was successfully created.' }
-        format.json { render :show, status: :created, location: @document }
-      else
-        format.html { render :new }
-        format.json { render json: @document.errors, status: :unprocessable_entity }
-      end
-    end
+    @document.save
   end
 
   # PATCH/PUT /documents/1
