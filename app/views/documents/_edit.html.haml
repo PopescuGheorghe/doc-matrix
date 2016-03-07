@@ -1,0 +1,6 @@
+.modal-header
+  %h3.center= "Editing #{@document.title}"
+  .editable
+  :javascript
+    var editor = new MediumEditor('.edit');
+  = render 'simpleform'

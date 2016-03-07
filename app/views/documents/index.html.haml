@@ -18,7 +18,7 @@
                     %td= image_tag  "document.png", width: '32'
                     %td= document.title
                     %td= document.user.email
-                    %td= link_to 'View ', document, class: :"btn btn-sm btn-default"
+                    %td= link_to 'View ', document, remote: true, class: :"btn btn-sm btn-default"
             .col-sm-offset-3.col-md-offset-3
               = will_paginate @other_documents, param_name: :others_page
         .col-sm-6.col-md-6
@@ -30,8 +30,8 @@
                   %tr
                     %td= image_tag  "document.png", width: '32'
                     %td= document.title
-                    %td= link_to 'View', document, class: :"btn btn-sm btn-default"
-                    %td= link_to 'Edit',edit_document_path(document), class: :"btn btn-sm btn-default" if can? :update, document
+                    %td= link_to 'View', document, remote: true, class: :"btn btn-sm btn-default"
+                    %td= link_to 'Edit',edit_document_path(document), remote: true, class: :"btn btn-sm btn-default" if can? :update, document
                     %td= link_to 'Delete', document, method: :delete, data: { confirm: 'Are you sure?' }, class: :"btn btn-sm btn-danger" if can? :destroy, document
 
             .col-sm-offset-3.col-md-offset-3.col-xs-offset-3

@@ -1,0 +1,18 @@
+.modal-header
+  .modal-dialog
+    .modal-content
+      .modal-body
+        -# .col-md-4.col-md-offset-4.pull-right
+          -# %form
+          -#   .form-group
+          -#     %input#search.form-control{:placeholder => "Search", :type => "text"}/
+        %p
+          %strong Title:
+          = @document.title
+        %div#document_content
+          %strong Content:
+          = @document.content.html_safe
+      .modal-footer
+        - if can? :update, @document
+          = link_to 'Edit', edit_document_path(@document), remote: true, class: "space btn btn-primary"
+        = link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"}

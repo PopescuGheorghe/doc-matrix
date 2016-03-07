@@ -11,3 +11,5 @@
         .actions
           = f.button :submit, class: "btn btn-primary"
           = link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"}
+    = render 'documents/versions', document: @document
+
